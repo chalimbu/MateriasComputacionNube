@@ -1,5 +1,21 @@
-server: 
-    port: 9080
-    servlet:
-        context-path: /api/v1/materias
-        
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://ec2-174-129-253-169.compute-1.amazonaws.com:5432/de5iquupki3geq
+    username: ikxfvvkbibdqhl
+    password: d9f19bf3d7ed3c1e9537a801f5e48f06027d0e60cdf545c8d4e9893589e08215
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    ##show-sql: true  
+
+server:
+  port: 9080
+  servlet:
+    context-path: /api/v1/materias
+
+logging:
+  level:
+    # Hides HHH000424: Disabling contextual LOB creation as createClob() method threw error
+    org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl: WARN
